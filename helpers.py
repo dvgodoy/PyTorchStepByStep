@@ -1,3 +1,5 @@
+import numpy as np
+
 def make_train_step(model, loss_fn, optimizer):
     # Builds function that performs a step in the train loop
     def perform_train_step(x, y):

@@ -20,3 +20,10 @@ train_step = make_train_step(model, loss_fn, optimizer)
 
 # Creates the val_step function for our model and loss function
 val_step = make_val_step(model, loss_fn)
+
+# Creates a Summary Writer to interface with TensorBoard
+writer = SummaryWriter('runs/simple_linear_regression')
+
+# Fetches a single mini-batch so we can use add_graph
+x_sample, y_sample = next(iter(train_loader))
+writer.add_graph(model, x_sample.to(device))

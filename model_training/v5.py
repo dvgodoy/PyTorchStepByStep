@@ -1,9 +1,3 @@
-# Creates a Summary Writer to interface with TensorBoard
-writer = SummaryWriter('runs/simple_linear_regression')
-
-# Fetches a single mini-batch so we can use add_graph
-x, y = next(iter(train_loader))
-writer.add_graph(model, x.to(device))
 
 # Defines number of epochs
 n_epochs = 200
