@@ -9,7 +9,7 @@ def make_train_step(model, loss_fn, optimizer):
         # Step 1 - Computes our model's predicted output - forward pass
         yhat = model(x)
         # Step 2 - Computes the loss
-        loss = loss_fn(y, yhat)
+        loss = loss_fn(yhat, y)
         # Step 3 - Computes gradients for both "a" and "b" parameters
         loss.backward()
         # Step 4 - Updates parameters using gradients and the learning rate
@@ -43,7 +43,7 @@ def make_val_step(model, loss_fn):
         # Step 1 - Computes our model's predicted output - forward pass
         yhat = model(x)
         # Step 2 - Computes the loss
-        loss = loss_fn(y, yhat)
+        loss = loss_fn(yhat, y)
         # There is no need to compute Steps 3 and 4, since we don't update parameters during evaluation
         return loss.item()
     
