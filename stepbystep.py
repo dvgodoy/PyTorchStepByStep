@@ -64,6 +64,7 @@ class StepByStep(object):
     def _add_graph(self):
         # Fetches a single mini-batch so we can use add_graph
         x_sample, y_sample = next(iter(self.train_loader))
+        self.model.eval()
         self.writer.add_graph(self.model, x_sample.to(self.device))
 
     def set_loaders(self, train_loader, val_loader=None):

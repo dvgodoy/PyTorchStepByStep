@@ -34,6 +34,7 @@ def figure2(x_train, y_train, b, w, color='k'):
     fig, ax = plt.subplots(1, 1, figsize=(10, 6))
     ax.set_xlabel('x')
     ax.set_ylabel('y')
+    ax.set_ylim([0, 3])
 
     # Dataset
     ax.scatter(x_train, y_train)
@@ -581,6 +582,7 @@ def figure18(x_train, y_train):
     fig, ax = plt.subplots(1, 1, figsize=(10, 6))
     ax.set_xlabel('x')
     ax.set_ylabel('y')
+    ax.set_ylim([0, 3])
 
     # Dataset
     ax.scatter(x_train, y_train)
