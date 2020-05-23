@@ -12,5 +12,5 @@ dataset = TensorDataset(x_tensor, y_tensor)
 train_data, val_data = random_split(dataset, [80, 20])
 
 # Builds a loader of each set
-train_loader = DataLoader(dataset=train_data, batch_size=16)
+train_loader = DataLoader(dataset=train_data, batch_size=16, shuffle=True)
 val_loader = DataLoader(dataset=val_data, batch_size=16)
