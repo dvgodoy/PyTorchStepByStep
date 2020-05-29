@@ -11,7 +11,7 @@ for epoch in range(n_epochs):
     yhat = model(x_train_tensor)
     
     # Step 2 - Computes the loss
-    loss = loss_fn(y_train_tensor, yhat)
+    loss = loss_fn(yhat, y_train_tensor)
 
     # Step 3 - Computes gradients for both "a" and "b" parameters
     loss.backward()

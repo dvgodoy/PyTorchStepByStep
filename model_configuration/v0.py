@@ -5,7 +5,6 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 # Sets learning rate - this is "eta" ~ the "n" like Greek letter
 lr = 0.1
 
-# Step 0 - Initializes parameters randomly
 torch.manual_seed(42)
 # Now we can create a model and send it at once to the device
 model = nn.Sequential(nn.Linear(1, 1)).to(device)
