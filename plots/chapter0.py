@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.patches import Rectangle
 from matplotlib.collections import PatchCollection
 from sklearn.linear_model import LinearRegression
@@ -68,25 +69,50 @@ def figure3(x_train, y_train, b, w):
 
 def figure4(x_train, y_train, b, w, bs, ws, all_losses):
     b_minimum, w_minimum = fit_model(x_train, y_train)
+    
+    
+    figure = plt.figure(figsize=(12, 6))
 
-    fig, ax = plt.subplots(1, 1, figsize=(6, 6))
-    ax.set_xlabel('b')
-    ax.set_ylabel('w')
-    ax.set_title('Loss Surface')
+    # 1st plot
+    ax1 = figure.add_subplot(1, 2, 1, projection='3d')
+    ax1.set_xlabel('b')
+    ax1.set_ylabel('w')
+    ax1.set_title('Loss Surface')
+
+    surf = ax1.plot_surface(bs, ws, all_losses, rstride=1, cstride=1, alpha=.5, cmap=plt.cm.jet, linewidth=0, antialiased=True)
+    ax1.contour(bs[0, :], ws[:, 0], all_losses, 10, offset=-1, cmap=plt.cm.jet)
+
+
+    bidx, widx, _, _ = find_index(b_minimum, w_minimum, bs, ws)
+    ax1.scatter(b_minimum, w_minimum, all_losses[bidx, widx], c='k')
+    ax1.text(-.3, 2.5, all_losses[bidx, widx], 'Minimum', zdir=(1, 0, 0))
+    # Random start
+    bidx, widx, _, _ = find_index(b, w, bs, ws)
+    ax1.scatter(b, w, all_losses[bidx, widx], c='k')
+    # Annotations
+    ax1.text(-.2, -1.5, all_losses[bidx, widx], 'Random\n Start', zdir=(1, 0, 0))
+
+    ax1.view_init(40, 260)
+    
+    # 2nd plot
+    ax2 = figure.add_subplot(1, 2, 2)
+    ax2.set_xlabel('b')
+    ax2.set_ylabel('w')
+    ax2.set_title('Loss Surface')
 
     # Loss surface
-    CS = ax.contour(bs[0, :], ws[:, 0], all_losses, cmap=plt.cm.jet)
-    ax.clabel(CS, inline=1, fontsize=10)
+    CS = ax2.contour(bs[0, :], ws[:, 0], all_losses, cmap=plt.cm.jet)
+    ax2.clabel(CS, inline=1, fontsize=10)
     # Minimum
-    ax.scatter(b_minimum, w_minimum, c='k')
+    ax2.scatter(b_minimum, w_minimum, c='k')
     # Random start
-    ax.scatter(b, w, c='k')
+    ax2.scatter(b, w, c='k')
     # Annotations
-    ax.annotate('Random Start', xy=(-.2, 0.05), c='k')
-    ax.annotate('Minimum', xy=(.5, 2.2), c='k')
-
-    fig.tight_layout()
-    return fig, ax
+    ax2.annotate('Random Start', xy=(-.2, 0.05), c='k')
+    ax2.annotate('Minimum', xy=(.5, 2.2), c='k')   
+    
+    figure.tight_layout()
+    return figure, (ax1, ax2)
 
 
 def figure5(x_train, y_train, b, w, bs, ws, all_losses):
