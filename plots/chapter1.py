@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
 def figure1(x_train, y_train, x_val, y_val):
-    fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
     
     ax[0].scatter(x_train, y_train)
     ax[0].set_xlabel('x')

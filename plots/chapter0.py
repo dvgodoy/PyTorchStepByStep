@@ -27,7 +27,7 @@ def find_index(b, w, bs, ws):
 
 
 def figure1(x_train, y_train, x_val, y_val):
-    fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
     
     ax[0].scatter(x_train, y_train)
     ax[0].set_xlabel('x')
@@ -51,7 +51,7 @@ def figure2(x_train, y_train, b, w, color='k'):
     # Computes yhat
     yhat_range = b + w * x_range
 
-    fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+    fig, ax = plt.subplots(1, 1, figsize=(6, 6))
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ax.set_ylim([0, 3])
@@ -572,7 +572,7 @@ def figure17(x_train, y_train, scaled_bs, scaled_ws, bad_x_train, scaled_x_train
 
     scaled_b_minimum, scaled_w_minimum = fit_model(scaled_x_train, y_train)
 
-    fig, axs = plt.subplots(1, 3, figsize=(15, 6))
+    fig, axs = plt.subplots(1, 3, figsize=(12, 6))
 
     axs[0].set_xlabel('b')
     axs[0].set_ylabel('w')
@@ -624,10 +624,10 @@ def figure18(x_train, y_train):
     # Computes yhat
     yhat_range = b_minimum + w_minimum * x_range
 
-    fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+    fig, ax = plt.subplots(1, 1, figsize=(6, 6))
     ax.set_xlabel('x')
     ax.set_ylabel('y')
-    ax.set_ylim([0, 3])
+    ax.set_ylim([0, 3.1])
 
     # Dataset
     ax.scatter(x_train, y_train)
@@ -635,7 +635,7 @@ def figure18(x_train, y_train):
     ax.plot(x_range, yhat_range, label='Final model\'s predictions', c='k', linestyle='--')
 
     # Annotations
-    ax.annotate('b = {:.4f} w = {:.4f}'.format(b_minimum, w_minimum), xy=(.4, 1.5), c='k', rotation=28)
+    ax.annotate('b = {:.4f} w = {:.4f}'.format(b_minimum, w_minimum), xy=(.4, 1.5), c='k', rotation=34)
     ax.legend(loc=0)
     fig.tight_layout()
     return fig, ax
