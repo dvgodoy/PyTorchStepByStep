@@ -572,7 +572,7 @@ def figure17(x_train, y_train, scaled_bs, scaled_ws, bad_x_train, scaled_x_train
 
     scaled_b_minimum, scaled_w_minimum = fit_model(scaled_x_train, y_train)
 
-    fig, axs = plt.subplots(1, 3, figsize=(12, 6))
+    fig, axs = plt.subplots(1, 3, figsize=(15, 6))
 
     axs[0].set_xlabel('b')
     axs[0].set_ylabel('w')
