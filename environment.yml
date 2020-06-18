@@ -1,0 +1,22 @@
+name: pytorchbook
+channels:
+  - conda-forge
+  - pytorch
+  - dglteam
+dependencies:
+  - python=3.7
+  - pip
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - jupyterlab
+  - pytorch>=1.4
+  - torchvision>=0.5
+  - torchtext
+  - opencv
+  - librosa
+  - nb_conda_kernels
+  - pip:
+    - torchviz
+    - tensorboard
