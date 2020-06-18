@@ -1,0 +1,1 @@
+jupyter serverextension enable --sys-prefix tensorboard
