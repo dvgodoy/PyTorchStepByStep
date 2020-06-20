@@ -38,9 +38,10 @@ This option will give you more **flexibility**, but it will require **more effor
 If you don’t have [**Anaconda’s Individual Edition**](https://www.anaconda.com/products/individual) installed yet, that would be a good time to do it - it is a very handy way to start - since it contains most of the Python libraries a data scientist will ever need to develop and train models. 
 
 Please follow **the installation instructions** for your OS:
-• [Windows](https://docs.anaconda.com/anaconda/install/windows/)
-• [macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
-• [Linux](https://docs.anaconda.com/anaconda/install/linux/)
+
+- [Windows](https://docs.anaconda.com/anaconda/install/windows/)
+- [macOS](https://docs.anaconda.com/anaconda/install/mac-os/)
+- [Linux](https://docs.anaconda.com/anaconda/install/linux/)
 
 Make sure you choose **Python 3.X** version since Python 2 was discontinued in January 2020.
 
