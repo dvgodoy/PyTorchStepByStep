@@ -81,6 +81,16 @@ def config_chapter1():
         subprocess.run(sys.executable, '-m', 'pip', 'install', 'torchviz')
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(1)
+        print('Creating folders...')
+        folders = ['data_preparation', 'model_configuration', 'model_training']
+
+        for folder in folders:
+            try:
+                os.mkdir(folder)
+            except OSError as e:
+                e.errno
+                if e.errno != errno.EEXIST:
+                    raise
         
 def config_chapter2():
     if IS_COLAB:

@@ -14,8 +14,7 @@ def plot_losses(losses, val_losses):
     return fig
 
 
-def plot_resumed_losses(saved_epoch, saved_losses, saved_val_losses, range_before,
-                        n_epochs, losses, val_losses, range_after):
+def plot_resumed_losses(saved_epoch, saved_losses, saved_val_losses, n_epochs, losses, val_losses):
     range_before = range(0, saved_epoch)
     range_after = range(saved_epoch, saved_epoch + n_epochs)
 
