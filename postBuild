@@ -1,3 +1,4 @@
+jupyter serverextension enable --sys-prefix jupyter_server_proxy
 # tensorboard launches at startup
 mv tensorboardserverextension.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 # enable tensorboard extension

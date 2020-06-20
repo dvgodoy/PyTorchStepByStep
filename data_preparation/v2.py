@@ -9,7 +9,12 @@ y_tensor = torch.from_numpy(y).float()
 dataset = TensorDataset(x_tensor, y_tensor)
 
 # Performs the split
-train_data, val_data = random_split(dataset, [80, 20])
+ratio = .8
+n_total = len(dataset)
+n_train = int(n_total * ratio)
+n_val = n_total - n_train
+
+train_data, val_data = random_split(dataset, [n_train, n_val])
 
 # Builds a loader of each set
 train_loader = DataLoader(dataset=train_data, batch_size=16, shuffle=True)
