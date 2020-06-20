@@ -78,7 +78,7 @@ def config_chapter0():
 def config_chapter1():
     if IS_COLAB:
         print('Installing torchviz...')
-        subprocess.run(sys.executable, '-m', 'pip', 'install', 'torchviz')
+        subprocess.run([sys.executable, '-m', 'pip', 'install', 'torchviz'])
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(1)
         print('Creating folders...')
