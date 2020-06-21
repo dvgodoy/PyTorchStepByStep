@@ -98,7 +98,13 @@ TensorBoard is a powerful tool and we can use it even if we are developing model
 > This step is optional, mostly because the installation of GraphViz can be challenging sometimes (especially on Windows). If, for any reason, you do not succeed in installing it correctly, or if you
 > decide to skip this installation step, you will still be **able to execute the code in this book** (except for a couple of cells that generate images of a model’s structure in the Dynamic Computation Graph section of Chapter 1).
 
-We need to install GraphViz to be able to use **TorchViz**, a neat package that allows us to visualize a  model’s structure. Please check the [**installation instructions**]( https://www.graphviz.org/download/) for your OS. For additional information, you can also check the [How to Install Graphviz Software](https://bit.ly/30Ayct3) guide. If you installed GraphViz successfully, you can install the [torchviz](https://github.com/szagoruyko/pytorchviz) package. This package is not part of Anaconda Distribution Repository and is only available at PyPI , the Python Package Index, so we need to pip install it.
+We need to install GraphViz to be able to use **TorchViz**, a neat package that allows us to visualize a  model’s structure. Please check the [**installation instructions**]( https://www.graphviz.org/download/) for your OS. 
+
+> If you are using **Windows**, please use the installer at [GraphViz's Windows Package](https://graphviz.gitlab.io/_pages/Download/Download_windows.html). You also need to  add GraphViz to the PATH (environment variable) in Windows. Most likely, you can find GraphViz executable file at `C:\ProgramFiles(x86)\Graphviz2.38\bin`. Once you found it, you need to set or change the PATH accordingly, adding GraphViz's location to it. For more details on how to do that, please refer to [How to Add to Windows PATH Environment Variable](https://bit.ly/3fIwYA5).
+
+For additional information, you can also check the [How to Install Graphviz Software](https://bit.ly/30Ayct3) guide. 
+
+If you installed GraphViz successfully, you can install the [torchviz](https://github.com/szagoruyko/pytorchviz) package. This package is not part of Anaconda Distribution Repository and is only available at PyPI , the Python Package Index, so we need to pip install it.
 
 Once again, open a **terminal** or **Anaconda Prompt** and run this command (just once
 more: after activating the environment):
@@ -111,8 +117,7 @@ It is way beyond the scope of this guide to introduce you to version control and
 
 Otherwise, I’d recommend you to learn more about it, it will **definitely** be useful for you later down the line. In the meantime, I will show you the bare minimum, so you can use `git` to **clone this repository** containing all code used in this book - so you have your own, local copy of it and can modify and experiment with it as you please.
 
-First, you need to install it. So, head to its [downloads](https://git-scm.com/
-downloads) page and follow instructions for your OS. Once installation is complete, you should be able to run **git commands** on your terminal or Anaconda Prompt. To clone this repository, you only need to run:
+First, you need to install it. So, head to its [downloads](https://git-scm.com/downloads) page and follow instructions for your OS. Once installation is complete, please open a **new terminal** or **Anaconda Prompt** (it's OK to close the previous one). In the new terminal or Anaconda Prompt, you should be able to **run `git` commands**. To clone this repository, you only need to run:
 
 `(pytorchbook)C:\> git clone https://github.com/dvgodoy/PyTorchStepByStep.git`
 
