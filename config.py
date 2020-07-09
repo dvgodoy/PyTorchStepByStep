@@ -74,6 +74,7 @@ def config_chapter0():
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(0)
+        print('Finished!')
     
 def config_chapter1():
     if IS_COLAB:
@@ -91,8 +92,10 @@ def config_chapter1():
                 e.errno
                 if e.errno != errno.EEXIST:
                     raise
+        print('Finished!')
         
 def config_chapter2():
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(2)
+        print('Finished!')
