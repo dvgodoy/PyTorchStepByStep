@@ -200,7 +200,7 @@ def figure6(x_train, y_train, b, w, bs, ws, all_losses):
     axs[0].annotate('Random Start', xy=(fixedb + .1, fixedw + .1), c='k')
 
     axs[1].set_ylim([-.1, 15.1])
-    axs[1].set_xlabel('w')
+    axs[1].set_xlabel('b')
     axs[1].set_ylabel('Loss')
     axs[1].set_title('Fixed: w = {:.2f}'.format(fixedw))
     # Loss
