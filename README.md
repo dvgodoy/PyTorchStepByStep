@@ -19,6 +19,8 @@ You can go through the chapters already using the links below:
 
 - [Chapter 1](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter01.ipynb)
 
+- [Chapter 2](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.ipynb)
+
 ### Binder
 
 You can also **load the notebooks directly from GitHub** using Binder, but the process is slightly different. It will create an environment on the cloud and allow you to access **Jupyter's Home Page** in your browser, listing all available notebooks, just like in your own computer.
@@ -100,7 +102,7 @@ TensorBoard is a powerful tool and we can use it even if we are developing model
 
 We need to install GraphViz to be able to use **TorchViz**, a neat package that allows us to visualize a  model’s structure. Please check the [**installation instructions**]( https://www.graphviz.org/download/) for your OS. 
 
-> If you are using **Windows**, please use the installer at [GraphViz's Windows Package](https://graphviz.gitlab.io/_pages/Download/Download_windows.html). You also need to  add GraphViz to the PATH (environment variable) in Windows. Most likely, you can find GraphViz executable file at `C:\ProgramFiles(x86)\Graphviz2.38\bin`. Once you found it, you need to set or change the PATH accordingly, adding GraphViz's location to it. For more details on how to do that, please refer to [How to Add to Windows PATH Environment Variable](https://bit.ly/3fIwYA5).
+> If you are using **Windows**, please use the installer at [GraphViz's Windows Package](https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.msi). You also need to  add GraphViz to the PATH (environment variable) in Windows. Most likely, you can find GraphViz executable file at `C:\ProgramFiles(x86)\Graphviz2.38\bin`. Once you found it, you need to set or change the PATH accordingly, adding GraphViz's location to it. For more details on how to do that, please refer to [How to Add to Windows PATH Environment Variable](https://bit.ly/3fIwYA5).
 
 For additional information, you can also check the [How to Install Graphviz Software](https://bit.ly/30Ayct3) guide. 
 
