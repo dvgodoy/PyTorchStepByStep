@@ -15,11 +15,13 @@ FOLDERS = {
     0: ['plots'],
     1: ['plots'],
     2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training']
+    21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep']
 }
 FILENAMES = {
     0: ['chapter0.py'],
     1: ['chapter1.py'],
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py']
+    21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py']
 }
 
 try:
@@ -48,10 +50,11 @@ def download_to_colab(chapter):
             if e.errno != errno.EEXIST:
                 raise
 
-        path = os.path.join(folder, filename)
-        url = '{}{}'.format(base_url, path)
-        r = requests.get(url, allow_redirects=True)
-        open(path, 'wb').write(r.content)
+        if len(filename):
+	        path = os.path.join(folder, filename)
+	        url = '{}{}'.format(base_url, path)
+	        r = requests.get(url, allow_redirects=True)
+	        open(path, 'wb').write(r.content)
 
     try:
         os.mkdir('runs')
@@ -98,4 +101,10 @@ def config_chapter2():
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(2)
+        print('Finished!')
+
+def config_chapter2_1():
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(21)
         print('Finished!')

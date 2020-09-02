@@ -16,10 +16,9 @@ You can easily **load the notebooks directly from GitHub** using Colab and run t
 You can go through the chapters already using the links below:
 
 - [Chapter 0](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter00.ipynb)
-
 - [Chapter 1](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter01.ipynb)
-
 - [Chapter 2](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.ipynb)
+- [Chapter 2.1](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.1.ipynb)
 
 ### Binder
 
