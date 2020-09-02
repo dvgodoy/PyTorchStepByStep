@@ -14,7 +14,7 @@ def tensorboard_cleanup():
 FOLDERS = {
     0: ['plots'],
     1: ['plots'],
-    2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training']
+    2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training'],
     21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep']
 }
 FILENAMES = {
