@@ -20,7 +20,7 @@ FOLDERS = {
 FILENAMES = {
     0: ['chapter0.py'],
     1: ['chapter1.py'],
-    2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py']
+    2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
     21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py']
 }
 
