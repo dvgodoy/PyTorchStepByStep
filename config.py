@@ -15,15 +15,15 @@ FOLDERS = {
     0: ['plots'],
     1: ['plots'],
     2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training'],
-    21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep']
-    3: ['plots', 'stepbystep']
+    21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep'],
+    3: ['plots', 'stepbystep'],
 }
 FILENAMES = {
     0: ['chapter0.py'],
     1: ['chapter1.py'],
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
-    21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py']
-    3: ['chapter3.py', 'v0.py']
+    21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py'],
+    3: ['chapter3.py', 'v0.py'],
 }
 
 try:
