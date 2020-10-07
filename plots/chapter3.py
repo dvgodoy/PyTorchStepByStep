@@ -51,7 +51,9 @@ def precision_recall(cm):
     
     return precision, recall
 
-def probability_line(ax, y, probs, threshold, shift=0.0, annot=False):
+def probability_line(ax, y, probs, threshold, shift=0.0, annot=False, colors=None):
+    if colors is None:
+        colors = ['r', 'b']
     ax.grid(False)
     ax.set_ylim([-.1, .1])
     ax.axes.get_yaxis().set_visible(False)
@@ -65,11 +67,11 @@ def probability_line(ax, y, probs, threshold, shift=0.0, annot=False):
     fp = (y == 1) & (probs < threshold)
 
     ax.plot([threshold, threshold], [-.1, .1], c='k', zorder=1, linestyle='--')
-    ax.scatter(probs[tn], np.zeros(tn.sum()) + shift, c='r', s=150, zorder=2, edgecolor='r', linewidth=3, alpha=.8)
-    ax.scatter(probs[fn], np.zeros(fn.sum()) + shift, c='r', s=150, zorder=2, edgecolor='b', linewidth=3, alpha=.8)
+    ax.scatter(probs[tn], np.zeros(tn.sum()) + shift, c=colors[0], s=150, zorder=2, edgecolor=colors[0], linewidth=3)
+    ax.scatter(probs[fn], np.zeros(fn.sum()) + shift, c=colors[0], s=150, zorder=2, edgecolor=colors[1], linewidth=3)
 
-    ax.scatter(probs[tp], np.zeros(tp.sum()) - shift, c='b', s=150, zorder=2, edgecolor='b', linewidth=3, alpha=.8)
-    ax.scatter(probs[fp], np.zeros(fp.sum()) - shift, c='b', s=150, zorder=2, edgecolor='r', linewidth=3, alpha=.8)
+    ax.scatter(probs[tp], np.zeros(tp.sum()) - shift, c=colors[1], s=150, zorder=2, edgecolor=colors[1], linewidth=3)
+    ax.scatter(probs[fp], np.zeros(fp.sum()) - shift, c=colors[1], s=150, zorder=2, edgecolor=colors[0], linewidth=3)
 
     ax.set_xlabel(r'$\sigma(z) = P(y=1)$')
     ax.set_title('Threshold = {}'.format(threshold))
@@ -81,9 +83,11 @@ def probability_line(ax, y, probs, threshold, shift=0.0, annot=False):
         ax.annotate('TP', xy=(.70, -.08), c='k', weight='bold', fontsize=20)
     return ax
 
-def probability_contour(ax, model, device, X, y, threshold):
-    cm = plt.cm.RdBu
-    cm_bright = ListedColormap(['#FF0000', '#0000FF'])
+def probability_contour(ax, model, device, X, y, threshold, cm=None, cm_bright=None):
+    if cm is None:
+        cm = plt.cm.RdBu
+    if cm_bright is None:
+        cm_bright = ListedColormap(['#FF0000', '#0000FF'])
 
     h = .02  # step size in the mesh
 
@@ -127,13 +131,6 @@ def eval_curves(fprs, tprs, recalls, precisions, thresholds, thresholds2=None, l
     
     if thresholds2 is None:
         thresholds2 = thresholds[:]
-        
-    #fprs = [x for _, x in sorted(zip(thresholds, fprs))]
-    #tprs = [x for _, x in sorted(zip(thresholds, tprs))]
-    #recalls = [x for _, x in sorted(zip(thresholds2, recalls))]
-    #precisions = [x for _, x in sorted(zip(thresholds2, precisions))]
-    #thresholds = sorted(thresholds)
-    #thresholds2 = sorted(thresholds2)
 
     marker = '.r-' if line else '.r'
     
@@ -163,19 +160,20 @@ def eval_curves(fprs, tprs, recalls, precisions, thresholds, thresholds2=None, l
 
 
 
-def figure1(X_train, y_train, X_val, y_val):
-    cm_bright = ListedColormap(['#FF0000', '#0000FF'])
+def figure1(X_train, y_train, X_val, y_val, cm_bright=None):
+    if cm_bright is None:
+        cm_bright = ListedColormap(['#FF0000', '#0000FF'])
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6))
 
-    ax[0].scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright, edgecolors='k')
+    ax[0].scatter(X_train[:, 0], X_train[:, 1], c=y_train, cmap=cm_bright)#, edgecolors='k')
     ax[0].set_xlabel(r'$X_1$')
     ax[0].set_ylabel(r'$X_2$')
     ax[0].set_xlim([-2.3, 2.3])
     ax[0].set_ylim([-2.3, 2.3])
     ax[0].set_title('Generated Data - Train')
 
-    ax[1].scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=cm_bright, edgecolors='k')
+    ax[1].scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=cm_bright)#, edgecolors='k')
     ax[1].set_xlabel(r'$X_1$')
     ax[1].set_ylabel(r'$X_2$')
     ax[1].set_xlim([-2.3, 2.3])
@@ -237,9 +235,11 @@ def figure4(prob1):
 
     return fig
 
-def figure7(X, y, model, device):
-    cm = plt.cm.RdBu
-    cm_bright = ListedColormap(['#FF0000', '#0000FF'])
+def figure7(X, y, model, device, cm=None, cm_bright=None):
+    if cm is None:
+        cm = plt.cm.RdBu
+    if cm_bright is None:
+        cm_bright = ListedColormap(['#FF0000', '#0000FF'])
     fig = plt.figure(figsize=(15, 4.5))
 
     h = .02  # step size in the mesh
@@ -263,7 +263,7 @@ def figure7(X, y, model, device):
 
     contour = ax.contourf(xx, yy, logits, 25, cmap=cm, alpha=.8)
     # Plot the training points
-    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright, edgecolors='k')
+    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright)
     # Plot the testing points
     #ax.scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=cm_bright, edgecolors='k', alpha=0.6)
 
@@ -281,7 +281,7 @@ def figure7(X, y, model, device):
 
     surf = ax.plot_surface(xx, yy, yhat, rstride=1, cstride=1, alpha=.5, cmap=cm, linewidth=0, antialiased=True, vmin=0, vmax=1)
     # Plot the training points
-    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright, edgecolors='k')
+    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright)
     # Plot the testing points
     #ax.scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=cm_bright, edgecolors='k', alpha=0.6)
 
@@ -301,7 +301,7 @@ def figure7(X, y, model, device):
     ax.contour(xx, yy, yhat, levels=[.5], cmap="Greys", vmin=0, vmax=1)
     contour = ax.contourf(xx, yy, yhat, 25, cmap=cm, alpha=.8, vmin=0, vmax=1)
     # Plot the training points
-    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright, edgecolors='k')
+    ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm_bright)
     # Plot the testing points
     #ax.scatter(X_val[:, 0], X_val[:, 1], c=y_val, cmap=cm_bright, edgecolors='k', alpha=0.6)
 
@@ -319,7 +319,9 @@ def figure7(X, y, model, device):
     
     return fig
 
-def one_dimension(x, y):
+def one_dimension(x, y, colors=None):
+    if colors is None:
+        colors = ['r', 'b']
     fig, ax = plt.subplots(1, 1, figsize=(10, 2))
 
     ax.grid(False)
@@ -328,8 +330,8 @@ def one_dimension(x, y):
     ax.plot([-3, 3], [0, 0], linewidth=2, c='k', zorder=1)
     ax.plot([0, 0], [-.03, .03], c='k', zorder=1)
 
-    ax.scatter(x[y==1], np.zeros_like(x[y==1]), c='b', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
-    ax.scatter(x[y==0], np.zeros_like(x[y==0]), c='r', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
+    ax.scatter(x[y==1], np.zeros_like(x[y==1]), c=colors[1], s=150, zorder=2, linewidth=3)
+    ax.scatter(x[y==0], np.zeros_like(x[y==0]), c=colors[0], s=150, zorder=2, linewidth=3)
     ax.set_xlabel(r'$X_1$')
     ax.set_title('One Dimension')
     
@@ -337,7 +339,10 @@ def one_dimension(x, y):
     
     return fig
 
-def two_dimensions(x, y):
+def two_dimensions(x, y, colors=None):
+    if colors is None:
+        colors = ['r', 'b']
+    
     x2 = np.concatenate([x.reshape(-1, 1), (x ** 2).reshape(-1, 1)], axis=1)
 
     fig = plt.figure(figsize=(10, 4.5))
@@ -351,15 +356,15 @@ def two_dimensions(x, y):
     ax.plot([-3, 3], [0, 0], linewidth=2, c='k', zorder=1)
     ax.plot([0, 0], [-.03, .03], c='k', zorder=1)
 
-    ax.scatter(x[y==1], np.zeros_like(x[y==1]), c='b', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
-    ax.scatter(x[y==0], np.zeros_like(x[y==0]), c='r', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
+    ax.scatter(x[y==1], np.zeros_like(x[y==1]), c=colors[1], s=150, zorder=2, linewidth=3)
+    ax.scatter(x[y==0], np.zeros_like(x[y==0]), c=colors[0], s=150, zorder=2, linewidth=3)
     ax.set_xlabel(r'$X_1$')
     ax.set_title('One Dimension')
 
     ax = fig.add_subplot(gs[:, 1])
 
-    ax.scatter(*x2[y==1, :].T, c='b', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
-    ax.scatter(*x2[y==0, :].T, c='r', s=150, zorder=2, edgecolor='k', linewidth=3, alpha=.8)
+    ax.scatter(*x2[y==1, :].T, c='b', s=150, zorder=2, linewidth=3)
+    ax.scatter(*x2[y==0, :].T, c='r', s=150, zorder=2, linewidth=3)
     ax.plot([-2, 2], [1, 1], 'k--', linewidth=2)
     ax.set_xlabel(r'$X_1$')
     ax.set_ylabel(r'$X_2=X_1^2$')
@@ -368,22 +373,27 @@ def two_dimensions(x, y):
     fig.tight_layout()
     return fig
 
-def figure9(x, y, model, device, probabilities, threshold, shift=0.0, annot=False):
+def figure9(x, y, model, device, probabilities, threshold, shift=0.0, annot=False, cm=None, cm_bright=None):
     fig = plt.figure(figsize=(15, 5))
     gs = fig.add_gridspec(3, 3)
 
     ax = fig.add_subplot(gs[:, 0])
-    probability_contour(ax, model, device, x, y, threshold)
+    probability_contour(ax, model, device, x, y, threshold, cm, cm_bright)
+    
+    if cm_bright is None:
+        colors = ['r', 'b']
+    else:
+        colors = cm_bright.colors
 
     ax = fig.add_subplot(gs[1, 1:])
-    probability_line(ax, y, probabilities, threshold, shift, annot)
+    probability_line(ax, y, probabilities, threshold, shift, annot, colors)
 
     fig.tight_layout()
     return fig
 
-def figure10(y, probabilities, threshold, shift, annot):
+def figure10(y, probabilities, threshold, shift, annot, colors=None):
     fig, ax = plt.subplots(1, 1, figsize=(10, 2))
-    probability_line(ax, y, probabilities, threshold, shift, annot)
+    probability_line(ax, y, probabilities, threshold, shift, annot, colors)
     fig.tight_layout()
     return fig
 
@@ -395,11 +405,11 @@ def figure17(y, probabilities, threshs):
     fig = eval_curves(rates[:, 1], rates[:, 0], precrec[:, 1], precrec[:, 0], threshs, line=True, annot=False)
     return fig
 
-def figure19(y, probabilities, threshs=(.4, .5, .57)):
+def figure19(y, probabilities, threshs=(.4, .5, .57), colors=None):
     fig, axs = plt.subplots(3, 1, figsize=(10, 6))
-    probability_line(axs[0], y, probabilities, threshs[0], 0.0, False)
-    probability_line(axs[1], y, probabilities, threshs[1], 0.0, False)
-    probability_line(axs[2], y, probabilities, threshs[2], 0.0, False)
+    probability_line(axs[0], y, probabilities, threshs[0], 0.0, False, colors)
+    probability_line(axs[1], y, probabilities, threshs[1], 0.0, False, colors)
+    probability_line(axs[2], y, probabilities, threshs[2], 0.0, False, colors)
     fig.tight_layout()
     return fig
              
