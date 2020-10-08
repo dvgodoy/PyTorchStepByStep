@@ -15,13 +15,15 @@ FOLDERS = {
     0: ['plots'],
     1: ['plots'],
     2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training'],
-    21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep']
+    21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep'],
+    3: ['plots', 'stepbystep'],
 }
 FILENAMES = {
     0: ['chapter0.py'],
     1: ['chapter1.py'],
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
-    21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py']
+    21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py'],
+    3: ['chapter3.py', 'v0.py'],
 }
 
 try:
@@ -107,4 +109,10 @@ def config_chapter2_1():
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(21)
+        print('Finished!')
+
+def config_chapter3():
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(3)
         print('Finished!')
