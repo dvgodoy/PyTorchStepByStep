@@ -25,7 +25,7 @@ FILENAMES = {
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
     21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py'],
     3: ['chapter3.py', 'v0.py'],
-    4: ['chapter4.py', 'v1.py', 'image_classification.py'],}
+    4: ['chapter4.py', 'v0.py', 'image_classification.py'],}
 
 try:
     host = os.environ['BINDER_SERVICE_HOST']
@@ -76,18 +76,18 @@ if IS_BINDER:
     </script>
     ''')
     
-def config_chapter0():
+def config_chapter0(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(0)
+        download_to_colab(0, branch)
         print('Finished!')
     
-def config_chapter1():
+def config_chapter1(branch='master'):
     if IS_COLAB:
         print('Installing torchviz...')
         subprocess.run([sys.executable, '-m', 'pip', 'install', 'torchviz'])
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(1)
+        download_to_colab(1, branch)
         print('Creating folders...')
         folders = ['data_preparation', 'model_configuration', 'model_training']
 
@@ -100,26 +100,26 @@ def config_chapter1():
                     raise
         print('Finished!')
         
-def config_chapter2():
+def config_chapter2(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(2)
+        download_to_colab(2, branch)
         print('Finished!')
 
-def config_chapter2_1():
+def config_chapter2_1(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(21)
+        download_to_colab(21, branch)
         print('Finished!')
 
-def config_chapter3():
+def config_chapter3(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(3)
+        download_to_colab(3, branch)
         print('Finished!')
 
-def config_chapter4():
+def config_chapter4(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
-        download_to_colab(4)
+        download_to_colab(4, branch)
         print('Finished!')
