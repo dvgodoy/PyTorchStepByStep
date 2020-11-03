@@ -17,6 +17,7 @@ FOLDERS = {
     2: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'model_training'],
     21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep'],
     3: ['plots', 'stepbystep'],
+    4: ['plots', 'stepbystep', 'data_generation'],
 }
 FILENAMES = {
     0: ['chapter0.py'],
@@ -24,7 +25,7 @@ FILENAMES = {
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
     21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py'],
     3: ['chapter3.py', 'v0.py'],
-}
+    4: ['chapter4.py', 'v1.py', 'image_classification.py'],}
 
 try:
     host = os.environ['BINDER_SERVICE_HOST']
@@ -40,8 +41,8 @@ except ModuleNotFoundError:
 
 IS_LOCAL = (not IS_BINDER) and (not IS_COLAB)
 
-def download_to_colab(chapter):    
-    base_url = 'https://raw.githubusercontent.com/dvgodoy/PyTorchStepByStep/master/'
+def download_to_colab(chapter, branch='master'):    
+    base_url = 'https://raw.githubusercontent.com/dvgodoy/PyTorchStepByStep/{}/'.format(branch)
 
     folders = FOLDERS[chapter]
     filenames = FILENAMES[chapter]
@@ -53,10 +54,10 @@ def download_to_colab(chapter):
                 raise
 
         if len(filename):
-	        path = os.path.join(folder, filename)
-	        url = '{}{}'.format(base_url, path)
-	        r = requests.get(url, allow_redirects=True)
-	        open(path, 'wb').write(r.content)
+            path = os.path.join(folder, filename)
+            url = '{}{}'.format(base_url, path)
+            r = requests.get(url, allow_redirects=True)
+            open(path, 'wb').write(r.content)
 
     try:
         os.mkdir('runs')
@@ -115,4 +116,10 @@ def config_chapter3():
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(3)
+        print('Finished!')
+
+def config_chapter4():
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(4)
         print('Finished!')
