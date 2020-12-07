@@ -21,6 +21,7 @@ You can go through the chapters already using the links below:
 - [Chapter 2.1 - Going Classy](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.1.ipynb)
 - [Chapter 3 - A Simple Classification Problem](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter03.ipynb)
 - [Chapter 4 - Classifying Images](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter04.ipynb)
+- [Chapter 5 - Convolutions](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter05.ipynb)
 
 ### Binder
 
