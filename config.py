@@ -18,6 +18,7 @@ FOLDERS = {
     21: ['plots', 'data_generation', 'data_preparation', 'model_configuration', 'stepbystep'],
     3: ['plots', 'stepbystep'],
     4: ['plots', 'stepbystep', 'data_generation'],
+    5: ['plots', 'stepbystep', 'data_generation', ''],
 }
 FILENAMES = {
     0: ['chapter0.py'],
@@ -25,7 +26,9 @@ FILENAMES = {
     2: ['chapter2.py', 'simple_linear_regression.py', 'v0.py', 'v0.py', 'v0.py'],
     21: ['chapter2_1.py', 'simple_linear_regression.py', 'v2.py', '', 'v0.py'],
     3: ['chapter3.py', 'v0.py'],
-    4: ['chapter4.py', 'v0.py', 'image_classification.py'],}
+    4: ['chapter4.py', 'v0.py', 'image_classification.py'],
+    5: ['chapter5.py', 'v1.py', 'image_classification.py', 'helpers.py'],    
+}
 
 try:
     host = os.environ['BINDER_SERVICE_HOST']
@@ -47,11 +50,12 @@ def download_to_colab(chapter, branch='master'):
     folders = FOLDERS[chapter]
     filenames = FILENAMES[chapter]
     for folder, filename in zip(folders, filenames):
-        try:
-            os.mkdir(folder)
-        except OSError as e:
-            if e.errno != errno.EEXIST:
-                raise
+        if len(folder):
+            try:
+                os.mkdir(folder)
+            except OSError as e:
+                if e.errno != errno.EEXIST:
+                    raise
 
         if len(filename):
             path = os.path.join(folder, filename)
@@ -122,4 +126,10 @@ def config_chapter4(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(4, branch)
+        print('Finished!')
+
+def config_chapter5(branch='master'):
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(5, branch)
         print('Finished!')
