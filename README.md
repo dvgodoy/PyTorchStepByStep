@@ -1,6 +1,6 @@
 # Deep Learning with PyTorch Step-by-Step
 
-[![](images/book5.png)](https://leanpub.com/pytorch/)
+[![](images/book6.png)](https://leanpub.com/pytorch/)
 
 This is the official repository of my book "**Deep Learning with PyTorch Step-by-Step**". Here you will find **one Jupyter notebook** for every **chapter** in the book.
 
@@ -22,6 +22,7 @@ You can go through the chapters already using the links below:
 - [Chapter 3 - A Simple Classification Problem](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter03.ipynb)
 - [Chapter 4 - Classifying Images](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter04.ipynb)
 - [Chapter 5 - Convolutions](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter05.ipynb)
+- [Chapter 6 - Rock, Paper, Scissors](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter06.ipynb)
 
 ### Binder
 
