@@ -23,6 +23,8 @@ You can go through the chapters already using the links below:
 - [Chapter 4 - Classifying Images](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter04.ipynb)
 - [Chapter 5 - Convolutions](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter05.ipynb)
 - [Chapter 6 - Rock, Paper, Scissors](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter06.ipynb)
+- [Chapter 7 - Transfer Learning](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter07.ipynb)
+- [Extra Chapter - Vanishing and Exploding Gradients](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/ChapterExtra.ipynb)
 
 ### Binder
 
