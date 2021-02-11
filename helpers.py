@@ -81,3 +81,43 @@ def make_balanced_sampler(y):
         replacement=True
     )
     return sampler
+
+def freeze_model(model):
+    for parameter in model.parameters():
+        parameter.requires_grad = False
+
+def preprocessed_dataset(model, loader, device=None):
+    if device is None:
+        device = next(model.parameters()).device
+    
+    features = None
+    labels = None
+
+    for i, (x, y) in enumerate(loader):
+        model.eval()
+        x = x.to(device)
+        output = model(x)
+        if i == 0:
+            features = output.detach().cpu()
+            labels = y.cpu()
+        else:
+            features = torch.cat([features, output.detach().cpu()])
+            labels = torch.cat([labels, y.cpu()])
+
+    dataset = TensorDataset(features, labels)
+    return dataset
+
+def inception_loss(outputs, labels):
+    try:
+        main, aux = outputs
+    except ValueError:
+        main = outputs
+        aux = None
+        loss_aux = 0
+        
+    multi_loss_fn = nn.CrossEntropyLoss(reduction='mean')
+    loss_main = multi_loss_fn(main, labels)
+    if aux is not None:
+        loss_aux = multi_loss_fn(aux, labels)
+    return loss_main + 0.4 * loss_aux
+
