@@ -232,7 +232,7 @@ def plot_schemes(n_features, n_layers, hidden_units, loader):
               lambda m: nn.init.kaiming_uniform_(m, nonlinearity='relu')]
 
     for i in range(3):
-        model = build_model(X.shape[1], n_layers, hidden_units, act_fns[i], use_bn=False)   
+        model = build_model(n_features, n_layers, hidden_units, act_fns[i], use_bn=False)   
 
         torch.manual_seed(13)    
         weights_init = make_init_fn({nn.Linear: {'w': winits[i], 'b': nn.init.zeros_}})
@@ -269,7 +269,7 @@ def plot_scheme_bn(n_features, n_layers, hidden_units, loader):
               lambda m: nn.init.normal_(m, mean=0.0, std=0.1),]
 
     for i in range(3):
-        model = build_model(X.shape[1], n_layers, hidden_units, activation_fn, use_bn=(i==2))
+        model = build_model(n_features, n_layers, hidden_units, activation_fn, use_bn=(i==2))
 
         torch.manual_seed(13)
         weights_init = make_init_fn({nn.Linear: {'w': winits[i], 'b': nn.init.zeros_}})
