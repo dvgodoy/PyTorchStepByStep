@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 def figure1():
     data = {'AlexNet': (61, .727, 41.8),

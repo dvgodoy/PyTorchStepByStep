@@ -43,6 +43,7 @@ class StepByStep(object):
         self.writer = None
         self.scheduler = None
         self.is_batch_lr_scheduler = False
+        self.clipping = None
         
         # These attributes are going to be computed internally
         self.losses = []
