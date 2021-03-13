@@ -172,11 +172,12 @@ def plot_sequences(basic_corners=None, basic_colors=None, basic_letters=None, bi
             letters = np.array(basic_letters)[[(b + i) % 4 for i in range(4)]][slice(None, None, d*2-1)]
             for i in range(4):
                 axs[b, d].scatter(i, 0, c=colors[i], s=600, alpha=0.3 if (i+target_len)>=4 else 1.0)
-                axs[b, d].text(i-.125, -.1, letters[i], c='k' if (i+target_len)>=4 else 'w', fontsize=14)
+                axs[b, d].text(i-.125, -.2, letters[i], c='k' if (i+target_len)>=4 else 'w', fontsize=14)
                 axs[b, d].grid(False)
                 axs[b, d].set_xticks([])
                 axs[b, d].set_yticks([])
                 axs[b, d].set_xlim([-.5, 4])
+		axs[b, d].set_ylim([-1, 1])
                 if binary:
                     axs[b, d].text(4, -.1, f'y={d}')
 
@@ -205,6 +206,8 @@ def plot_data(points, directions, n_rows=2, n_cols=5):
 
         ax.set_xlabel(r"$x_0$")
         ax.set_ylabel(r"$x_1$", rotation=0)
+        ax.set_xlim([-1.5, 1.5])
+        ax.set_ylim([-1.5, 1.5])
 
     fig.tight_layout()
     return fig
