@@ -177,7 +177,7 @@ def plot_sequences(basic_corners=None, basic_colors=None, basic_letters=None, bi
                 axs[b, d].set_xticks([])
                 axs[b, d].set_yticks([])
                 axs[b, d].set_xlim([-.5, 4])
-		axs[b, d].set_ylim([-1, 1])
+                axs[b, d].set_ylim([-1, 1])
                 if binary:
                     axs[b, d].text(4, -.1, f'y={d}')
 
