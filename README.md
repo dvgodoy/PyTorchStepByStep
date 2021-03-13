@@ -15,16 +15,28 @@ You can easily **load the notebooks directly from GitHub** using Colab and run t
 
 You can go through the chapters already using the links below:
 
+#### Part I - Fundamentals
+
 - [Chapter 0 - Visualizing Gradient Descent](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter00.ipynb)
 - [Chapter 1 - A Simple Regression Problem](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter01.ipynb)
 - [Chapter 2 - Rethinking the Training Loop](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.ipynb)
 - [Chapter 2.1 - Going Classy](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter02.1.ipynb)
 - [Chapter 3 - A Simple Classification Problem](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter03.ipynb)
+
+#### Part II - Computer Vision
+
 - [Chapter 4 - Classifying Images](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter04.ipynb)
 - [Chapter 5 - Convolutions](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter05.ipynb)
 - [Chapter 6 - Rock, Paper, Scissors](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter06.ipynb)
 - [Chapter 7 - Transfer Learning](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter07.ipynb)
 - [Extra Chapter - Vanishing and Exploding Gradients](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/ChapterExtra.ipynb)
+
+#### Part III - Sequences & NLP
+
+- [Chapter 8 - Sequences](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter08.ipynb)
+- Chapter 9 - Sequence-to-Sequence
+- Chapter 10 - Transform and Roll Out
+- Chapter 11 - Down the Yellow Brick Rabbit Hole
 
 ### Binder
 
