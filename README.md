@@ -1,6 +1,6 @@
 # Deep Learning with PyTorch Step-by-Step
 
-[![](images/book7.png)](https://leanpub.com/pytorch/)
+[![](images/book8.png)](https://leanpub.com/pytorch/)
 
 This is the official repository of my book "**Deep Learning with PyTorch Step-by-Step**". Here you will find **one Jupyter notebook** for every **chapter** in the book.
 
