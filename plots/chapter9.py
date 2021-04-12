@@ -1,6 +1,7 @@
 import math
 import numpy as np
 import matplotlib
+import torch
 from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 from matplotlib.patches import Arc
@@ -490,11 +491,11 @@ def plot_mesh(values, ax, showvals=False, colorbar=False, ylabel=None):
         textcolors=["white", "black"]
         kw = dict(horizontalalignment="center", verticalalignment="center")
         valfmt = matplotlib.ticker.StrMethodFormatter("{x:.2f}")
-        threshold = im.norm(distances.max())/2.
-        for ip in range(distances.shape[0]):
-            for jp in range(distances.shape[1]):
-                kw.update(color=textcolors[int(im.norm(distances[ip, jp]) > threshold)])
-                text = im.axes.text(jp+.5, ip+.5, valfmt(distances[ip, jp], None), **kw)        
+        threshold = im.norm(values.max())/2.
+        for ip in range(values.shape[0]):
+            for jp in range(values.shape[1]):
+                kw.update(color=textcolors[int(im.norm(values[ip, jp]) > threshold)])
+                text = im.axes.text(jp+.5, ip+.5, valfmt(values[ip, jp], None), **kw)        
     
     fig.tight_layout()
     return fig
