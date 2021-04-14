@@ -93,7 +93,7 @@ def figure8(ps=(0.1, 0.3, 0.5, 0.9)):
     for ax, p in zip(axs.flat, ps):
         torch.manual_seed(17)
         distrib_outputs = torch.tensor([F.linear(F.dropout(spaced_points, p=p), 
-                                                 weight=torch.ones(11), bias=0) 
+                                                 weight=torch.ones(11), bias=torch.tensor(0)) 
                                         for _ in range(1000)])    
         plot_dist(ax, distrib_outputs, p)
         ax.label_outer()

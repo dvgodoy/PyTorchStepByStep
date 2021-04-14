@@ -23,6 +23,7 @@ FOLDERS = {
     7: ['plots', 'stepbystep', 'data_generation'],
     71: ['plots', 'stepbystep', 'data_generation'],
     8: ['plots', 'plots', 'stepbystep', 'data_generation'],
+    9: ['plots', 'plots', 'plots', 'stepbystep', 'data_generation'],
 }
 FILENAMES = {
     0: ['chapter0.py'],
@@ -36,6 +37,7 @@ FILENAMES = {
     7: ['chapter7.py', 'v3.py', 'rps.py'],
     71: ['chapterextra.py', 'v3.py', 'ball.py'],
     8: ['chapter8.py', 'replay.py', 'v4.py', 'square_sequences.py'],
+    9: ['chapter8.py', 'chapter9.py', 'replay.py', 'v4.py', 'square_sequences.py'],
 }
 
 try:
@@ -164,4 +166,10 @@ def config_chapter8(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(8, branch)
+        print('Finished!')
+        
+def config_chapter9(branch='master'):
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(9, branch)
         print('Finished!')

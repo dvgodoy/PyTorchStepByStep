@@ -34,7 +34,7 @@ You can go through the chapters already using the links below:
 #### Part III - Sequences & NLP
 
 - [Chapter 8 - Sequences](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter08.ipynb)
-- Chapter 9 - Sequence-to-Sequence
+- [Chapter 9 - Sequence-to-Sequence](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter09.ipynb)
 - Chapter 10 - Transform and Roll Out
 - Chapter 11 - Down the Yellow Brick Rabbit Hole
 
