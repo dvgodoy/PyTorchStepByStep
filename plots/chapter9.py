@@ -479,7 +479,7 @@ def plot_mesh(values, ax, showvals=False, colorbar=False, ylabel=None):
     ax.set_ylabel(ylabel)
     ax.set_ylim((d_model-.5, 0))
     ax.set_yticks(np.arange(d_model+1, -1, -1)-.5)
-    ax.set_yticklabels([''] + list(range(d_model-1, -1, -1)))
+    ax.set_yticklabels([''] + list(range(d_model-1, -1, -1)) + [''])
     ax.set_xlabel('Positions')
     ax.set_xlim((0, max_len))
     ax.set_xticks(np.arange(0, max_len+1)-.5)
