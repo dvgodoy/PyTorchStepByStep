@@ -25,7 +25,7 @@ FOLDERS = {
     8: ['plots', 'plots', 'stepbystep', 'data_generation'],
     9: ['plots', 'plots', 'plots', 'stepbystep', 'data_generation'],
     10: ['plots', 'plots', 'plots', 'plots', 'stepbystep', 'data_generation', 'data_generation', '', ''],
-    11: ['plots', 'stepbystep', 'data_generation'],
+    11: ['plots', 'stepbystep', 'data_generation', ''],
 }
 FILENAMES = {
     0: ['chapter0.py'],
@@ -41,7 +41,7 @@ FILENAMES = {
     8: ['chapter8.py', 'replay.py', 'v4.py', 'square_sequences.py'],
     9: ['chapter8.py', 'chapter9.py', 'replay.py', 'v4.py', 'square_sequences.py'],
     10: ['chapter8.py', 'chapter9.py', 'chapter10.py', 'replay.py', 'v4.py', 'square_sequences.py', 'image_classification.py', 'helpers.py', 'seq2seq.py'],
-    11: ['chapter11.py', 'v4.py', 'nlp.py'],
+    11: ['chapter11.py', 'v4.py', 'nlp.py', 'seq2seq.py'],
 }
 
 try:

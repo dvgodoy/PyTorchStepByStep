@@ -58,6 +58,7 @@ def plot_seq_patches(seq_patches):
         axs[i].label_outer()
     fig.suptitle('Sequence')
     fig.tight_layout(pad=0.3)
+    fig.subplots_adjust(top=0.9)
     return fig
 
 def plot_seq_patches_transp(seq_patches, add_cls=False, title=None):
