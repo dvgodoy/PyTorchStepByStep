@@ -1,6 +1,6 @@
 # Deep Learning with PyTorch Step-by-Step
 
-[![](images/book9.png)](https://leanpub.com/pytorch/)
+[![](images/book10.png)](https://leanpub.com/pytorch/)
 
 This is the official repository of my book "**Deep Learning with PyTorch Step-by-Step**". Here you will find **one Jupyter notebook** for every **chapter** in the book.
 
@@ -35,8 +35,8 @@ You can go through the chapters already using the links below:
 
 - [Chapter 8 - Sequences](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter08.ipynb)
 - [Chapter 9 - Sequence-to-Sequence](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter09.ipynb)
-- Chapter 10 - Transform and Roll Out
-- Chapter 11 - Down the Yellow Brick Rabbit Hole
+- [Chapter 10 - Transform and Roll Out](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter10.ipynb)
+- [Chapter 11 - Down the Yellow Brick Rabbit Hole](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter11.ipynb)
 
 ### Binder
 
