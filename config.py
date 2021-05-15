@@ -24,6 +24,8 @@ FOLDERS = {
     71: ['plots', 'stepbystep', 'data_generation'],
     8: ['plots', 'plots', 'stepbystep', 'data_generation'],
     9: ['plots', 'plots', 'plots', 'stepbystep', 'data_generation'],
+    10: ['plots', 'plots', 'plots', 'plots', 'stepbystep', 'data_generation'],
+    11: ['plots', 'stepbystep', 'data_generation'],
 }
 FILENAMES = {
     0: ['chapter0.py'],
@@ -38,6 +40,8 @@ FILENAMES = {
     71: ['chapterextra.py', 'v3.py', 'ball.py'],
     8: ['chapter8.py', 'replay.py', 'v4.py', 'square_sequences.py'],
     9: ['chapter8.py', 'chapter9.py', 'replay.py', 'v4.py', 'square_sequences.py'],
+    10: ['chapter8.py', 'chapter9.py', 'chapter10.py', 'replay.py', 'v4.py', 'square_sequences.py'],
+    11: ['chapter11.py', 'v4.py', 'nlp.py'],
 }
 
 try:
@@ -172,4 +176,16 @@ def config_chapter9(branch='master'):
     if IS_COLAB:
         print('Downloading files from GitHub repo to Colab...')
         download_to_colab(9, branch)
+        print('Finished!')
+
+def config_chapter10(branch='master'):
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(10, branch)
+        print('Finished!')
+
+def config_chapter11(branch='master'):
+    if IS_COLAB:
+        print('Downloading files from GitHub repo to Colab...')
+        download_to_colab(11, branch)
         print('Finished!')

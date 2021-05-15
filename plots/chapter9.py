@@ -77,6 +77,8 @@ def sequence_pred(sbs_obj, X, directions=None, n_rows=2, n_cols=5):
 
         ax.set_xlabel(r"$x_0$")
         ax.set_ylabel(r"$x_1$", rotation=0)
+        ax.set_xlim([-1.45, 1.45])
+        ax.set_ylim([-1.45, 1.45])        
 
     fig.tight_layout()
     return fig
