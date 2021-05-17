@@ -31,11 +31,14 @@ You can go through the chapters already using the links below:
 - [Chapter 7 - Transfer Learning](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter07.ipynb)
 - [Extra Chapter - Vanishing and Exploding Gradients](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/ChapterExtra.ipynb)
 
-#### Part III - Sequences & NLP
+#### Part III - Sequences
 
 - [Chapter 8 - Sequences](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter08.ipynb)
 - [Chapter 9 - Sequence-to-Sequence](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter09.ipynb)
 - [Chapter 10 - Transform and Roll Out](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter10.ipynb)
+
+#### Part IV - Natural Language Processing
+
 - [Chapter 11 - Down the Yellow Brick Rabbit Hole](https://colab.research.google.com/github/dvgodoy/PyTorchStepByStep/blob/master/Chapter11.ipynb)
 
 ### Binder
