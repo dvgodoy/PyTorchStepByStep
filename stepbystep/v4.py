@@ -58,16 +58,21 @@ class StepByStep(object):
         # loss function and optimizer
         # Note: there are NO ARGS there! It makes use of the class
         # attributes directly
-        self.train_step = self._make_train_step()
+        self.train_step_fn = self._make_train_step_fn()
         # Creates the val_step function for our model and loss
-        self.val_step = self._make_val_step()
+        self.val_step_fn = self._make_val_step_fn()
         
     def to(self, device):
         # This method allows the user to specify a different device
         # It sets the corresponding attribute (to be used later in
         # the mini-batches) and sends the model to the device
-        self.device = device
-        self.model.to(self.device)
+        try:
+            self.device = device
+            self.model.to(self.device)
+        except RuntimeError:
+            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+            print(f"Couldn't send it to {device}, sending it to {self.device} instead.")
+            self.model.to(self.device)
 
     def set_loaders(self, train_loader, val_loader=None):
         # This method allows the user to define which train_loader (and val_loader, optionally) to use
@@ -79,14 +84,14 @@ class StepByStep(object):
     def set_tensorboard(self, name, folder='runs'):
         # This method allows the user to define a SummaryWriter to interface with TensorBoard
         suffix = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-        self.writer = SummaryWriter('{}/{}_{}'.format(folder, name, suffix))
+        self.writer = SummaryWriter(f'{folder}/{name}_{suffix}')
 
-    def _make_train_step(self):
+    def _make_train_step_fn(self):
         # This method does not need ARGS... it can refer to
         # the attributes: self.model, self.loss_fn and self.optimizer
         
         # Builds function that performs a step in the train loop
-        def perform_train_step(x, y):
+        def perform_train_step_fn(x, y):
             # Sets model to TRAIN mode
             self.model.train()
 
@@ -108,11 +113,11 @@ class StepByStep(object):
             return loss.item()
 
         # Returns the function that will be called inside the train loop
-        return perform_train_step
+        return perform_train_step_fn
     
-    def _make_val_step(self):
+    def _make_val_step_fn(self):
         # Builds function that performs a step in the validation loop
-        def perform_val_step(x, y):
+        def perform_val_step_fn(x, y):
             # Sets model to EVAL mode
             self.model.eval()
 
@@ -123,7 +128,7 @@ class StepByStep(object):
             # There is no need to compute Steps 3 and 4, since we don't update parameters during evaluation
             return loss.item()
 
-        return perform_val_step
+        return perform_val_step_fn
             
     def _mini_batch(self, validation=False):
         # The mini-batch can be used with both loaders
@@ -131,10 +136,10 @@ class StepByStep(object):
         # corresponding step function is going to be used
         if validation:
             data_loader = self.val_loader
-            step = self.val_step
+            step_fn = self.val_step_fn
         else:
             data_loader = self.train_loader
-            step = self.train_step
+            step_fn = self.train_step_fn
 
         if data_loader is None:
             return None
@@ -147,7 +152,7 @@ class StepByStep(object):
             x_batch = x_batch.to(self.device)
             y_batch = y_batch.to(self.device)
 
-            mini_batch_loss = step(x_batch, y_batch)
+            mini_batch_loss = step_fn(x_batch, y_batch)
             mini_batch_losses.append(mini_batch_loss)
             
             if not validation:

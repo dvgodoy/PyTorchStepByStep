@@ -17,7 +17,7 @@ for epoch in range(n_epochs):
 
         # Performs one train step and returns the corresponding loss 
         # for this mini-batch
-        mini_batch_loss = train_step(x_batch, y_batch)
+        mini_batch_loss = train_step_fn(x_batch, y_batch)
         mini_batch_losses.append(mini_batch_loss)
 
     # Computes average loss over all mini-batches - that's the epoch loss

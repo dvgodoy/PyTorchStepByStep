@@ -2,9 +2,9 @@ import numpy as np
 import torch
 from torch.utils.data import random_split, WeightedRandomSampler
 
-def make_train_step(model, loss_fn, optimizer):
+def make_train_step_fn(model, loss_fn, optimizer):
     # Builds function that performs a step in the train loop
-    def perform_train_step(x, y):
+    def perform_train_step_fn(x, y):
         # Sets model to TRAIN mode
         model.train()
         
@@ -22,23 +22,23 @@ def make_train_step(model, loss_fn, optimizer):
         return loss.item()
     
     # Returns the function that will be called inside the train loop
-    return perform_train_step
+    return perform_train_step_fn
 
-def mini_batch(device, data_loader, step):
+def mini_batch(device, data_loader, step_fn):
     mini_batch_losses = []
     for x_batch, y_batch in data_loader:
         x_batch = x_batch.to(device)
         y_batch = y_batch.to(device)
 
-        mini_batch_loss = step(x_batch, y_batch)
+        mini_batch_loss = step_fn(x_batch, y_batch)
         mini_batch_losses.append(mini_batch_loss)
 
     loss = np.mean(mini_batch_losses)
     return loss
 
-def make_val_step(model, loss_fn):
+def make_val_step_fn(model, loss_fn):
     # Builds function that performs a step in the validation loop
-    def perform_val_step(x, y):
+    def perform_val_step_fn(x, y):
         # Sets model to EVAL mode
         model.eval()
         
@@ -49,7 +49,7 @@ def make_val_step(model, loss_fn):
         # There is no need to compute Steps 3 and 4, since we don't update parameters during evaluation
         return loss.item()
     
-    return perform_val_step
+    return perform_val_step_fn
 
 def index_splitter(n, splits, seed=13):
     idx = torch.arange(n)
