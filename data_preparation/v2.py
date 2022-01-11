@@ -2,8 +2,8 @@
 torch.manual_seed(13)
 
 # Builds tensors from numpy arrays BEFORE split
-x_tensor = torch.as_tensor(x).float()
-y_tensor = torch.as_tensor(y).float()
+x_tensor = torch.from_numpy(x).float()
+y_tensor = torch.from_numpy(y).float()
 
 # Builds dataset containing ALL data points
 dataset = TensorDataset(x_tensor, y_tensor)
