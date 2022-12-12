@@ -217,7 +217,7 @@ def contour_data(x_tensor, y_tensor):
 def compare_optimizers(model, loss_fn, optimizers, train_loader, 
                        val_loader=None, layers_to_hook='', n_epochs=50):
     results = {}
-    model_state = model.state_dict()
+    model_state = deepcopy(model).state_dict()
 
     for desc, opt in optimizers.items():
         model.load_state_dict(model_state)
