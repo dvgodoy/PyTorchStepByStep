@@ -214,30 +214,6 @@ def contour_data(x_tensor, y_tensor):
     all_losses = (all_errors ** 2).mean(axis=0)
     return b, w, bs, ws, all_losses
 
-def compare_optimizers(model, loss_fn, optimizers, train_loader, 
-                       val_loader=None, layers_to_hook='', n_epochs=50):
-    results = {}
-    model_state = model.state_dict()
-
-    for desc, opt in optimizers.items():
-        model.load_state_dict(model_state)
-        optimizer = opt['class'](model.parameters(), **opt['parms'])
-
-        sbs = StepByStep(model, loss_fn, optimizer)
-        sbs.set_loaders(train_loader, val_loader)
-        sbs.capture_parameters(layers_to_hook)
-        sbs.capture_gradients(layers_to_hook)
-        sbs.train(n_epochs)
-        sbs.remove_hooks()
-
-        results.update({desc: {'parms': deepcopy(sbs._parameters),
-                               'grads': deepcopy(sbs._gradients), 
-                               'losses': np.array(sbs.losses),
-                               'val_losses': np.array(sbs.val_losses),
-                               'state': optimizer.state_dict()}})
-        
-    return results
-
 def plot_paths(results, b, w, bs, ws, all_losses, axs=None):
     if axs is None:
         fig, axs = plt.subplots(1, len(results), figsize=(5 * len(results), 5))
@@ -364,7 +340,7 @@ def figure26(dummy_optimizer, dummy_schedulers):
 def compare_optimizers(model, loss_fn, optimizers, train_loader, val_loader=None, schedulers=None, layers_to_hook='', n_epochs=50):
     from stepbystep.v3 import StepByStep
     results = {}
-    model_state = model.state_dict()
+    model_state = deepcopy(model).state_dict()
 
     for desc, opt in optimizers.items():
         model.load_state_dict(model_state)
