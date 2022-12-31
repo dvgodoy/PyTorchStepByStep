@@ -781,7 +781,7 @@ def generate_gru_states(n_linear, r_linear, z_linear, X):
         gcell = add_tx(gcell, tdata[:, i, :])
         gcell = rgate(gcell, r)
         gcell = zgate(gcell, 1-z)
-        gcell = add_h(gcell, z*hidden)
+        gcell = add_h(gcell, (z*hidden)[:, 0, :])
         model_states.append(deepcopy(gcell.state_dict()))
 
         hidden = gcell(hidden)
