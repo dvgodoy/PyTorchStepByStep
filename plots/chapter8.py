@@ -136,7 +136,7 @@ def counter_vs_clock(basic_corners=None, basic_colors=None, basic_letters=None, 
             alpha = 1.0
             if draw_arrows:
                 alpha = 0.3 if ((start in targets) or (end in targets)) else 1.0
-            line = axs[is_clock].plot(*arrow_coords.T, c=color, lw=0 if draw_arrows else 2, 
+            line = axs[is_clock].plot(*arrow_coords.T, c=color, lw=0.1 if draw_arrows else 2, 
                                       alpha=alpha, linestyle='--' if alpha < 1 else '-')[0]
             if draw_arrows:
                 add_arrow(line, lw=3, alpha=alpha)
