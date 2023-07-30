@@ -163,7 +163,7 @@ def figure5(x_train, y_train, b, w, bs, ws, all_losses):
     axs[1].set_ylim([-.1, 15.1])
     axs[1].set_xlabel('w')
     axs[1].set_ylabel('Loss')
-    axs[1].set_title('Fixed: b = {:.2f}'.format(fixedb))
+    axs[1].set_title('Fixed: w = {:.2f}'.format(fixedw))
     # Loss
     axs[1].plot(w_range, all_losses[:, b_idx], c='r', linestyle='--', linewidth=2)
     # Starting point
@@ -202,7 +202,7 @@ def figure6(x_train, y_train, b, w, bs, ws, all_losses):
     axs[1].set_ylim([-.1, 15.1])
     axs[1].set_xlabel('b')
     axs[1].set_ylabel('Loss')
-    axs[1].set_title('Fixed: w = {:.2f}'.format(fixedw))
+    axs[1].set_title('Fixed: b = {:.2f}'.format(fixedb))
     # Loss
     axs[1].plot(b_range, all_losses[w_idx, :], c='k', linestyle='--', linewidth=2)
     # Starting point
@@ -223,7 +223,7 @@ def figure7(b, w, bs, ws, all_losses):
     axs[0].set_ylim([-.1, 6.1])
     axs[0].set_xlabel('w')
     axs[0].set_ylabel('MSE (loss)')
-    axs[0].set_title('Fixed: b = {:.2f}'.format(fixedb))
+    axs[0].set_title('Fixed: w = {:.2f}'.format(fixedw))
     # Red rectangle
     rect = Rectangle((-.3, 2.3),.5, .5)
     pc = PatchCollection([rect], facecolor='r', alpha=.3, edgecolor='r')
@@ -236,7 +236,7 @@ def figure7(b, w, bs, ws, all_losses):
     axs[1].set_ylim([-.1, 6.1])
     axs[1].set_xlabel('b')
     axs[1].set_ylabel('MSE (loss)')
-    axs[1].set_title('Fixed: w = {:.2f}'.format(fixedw))
+    axs[1].set_title('Fixed: b = {:.2f}'.format(fixedb))
     axs[1].label_outer()
     # Black rectangle
     rect = Rectangle((.3, 2.3), .5, .5)
