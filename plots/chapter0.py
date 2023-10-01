@@ -76,9 +76,9 @@ def figure3(x_train, y_train, b, w):
     # First data point
     ax.scatter([x0], [y0], c='r')
     # Vertical line showing error between point and prediction
-    ax.plot([x0, x0], [b + w * x0, y0 - .03], c='r', linewidth=2, linestyle='--')
+    ax.plot([x0, x0], [b[0] + w[0] * x0, y0 - .03], c='r', linewidth=2, linestyle='--')
     ax.arrow(x0, y0 - .03, 0, .03, color='r', shape='full', lw=0, length_includes_head=True, head_width=.03)
-    ax.arrow(x0, b + w * x0 + .05, 0, -.03, color='r', shape='full', lw=0, length_includes_head=True, head_width=.03)
+    ax.arrow(x0, b[0] + w[0] * x0 + .05, 0, -.03, color='r', shape='full', lw=0, length_includes_head=True, head_width=.03)
     # Annotations
     ax.annotate(r'$error_0$', xy=(.8, 1.5))
 
