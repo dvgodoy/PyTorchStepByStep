@@ -272,7 +272,7 @@ def hidden_states_contour(model, points, directions, cell=False, attr='hidden'):
                             model.classifier, 
                             device, 
                             getattr(model, attr).detach().cpu().squeeze(), 
-                            directions.astype(np.int), 
+                            directions.astype(int), 
                             0.5, 
                             cm=new_cmap, 
                             cm_bright=ListedColormap(['#FF3300', '#000099']), cbar=ci==1)

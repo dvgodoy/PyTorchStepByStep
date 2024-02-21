@@ -396,8 +396,8 @@ def build_feature_space(model, states, X, y, layer_name=None, contour_points=100
             #bent_contour_lines.append(get_activations(inputs=inputs)[0].reshape(output_shape))
             bent_contour_lines.append(contour_values[layer_name].reshape(output_shape))
             # Makes predictions for each point in the contour surface
-            #bent_preds.append((get_predictions(inputs=inputs)[0].reshape(output_shape) > .5).astype(np.int))
-            bent_preds.append((func(contour_values[last_layer_name]).reshape(output_shape) > .5).astype(np.int))
+            #bent_preds.append((get_predictions(inputs=inputs)[0].reshape(output_shape) > .5).astype(int))
+            bent_preds.append((func(contour_values[last_layer_name]).reshape(output_shape) > .5).astype(int))
             
 
     bent_inputs = np.array(bent_inputs)
@@ -504,7 +504,7 @@ def build_decision_boundary(model, states, X, y, layer_name=None, contour_points
         contour_values = get_values_for_epoch(model, states, epoch, contour_lines.reshape(-1, 2))
         output_shape = (contour_lines.shape[:2]) + (-1,)
         # Makes predictions for each point in the contour surface
-        bent_preds.append((func(contour_values[last_layer_name]).reshape(output_shape) > .5).astype(np.int))
+        bent_preds.append((func(contour_values[last_layer_name]).reshape(output_shape) > .5).astype(int))
 
     # Makes lists into ndarrays and wrap them as namedtuples
     bent_inputs = np.array(bent_inputs)
