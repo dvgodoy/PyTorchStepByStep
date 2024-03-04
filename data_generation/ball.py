@@ -41,7 +41,7 @@ def load_data(n_dims=10, n_points=1000, classif_radius_fraction=0.5, only_sphere
     radius *= adjustment
     X *= adjustment
 
-    y = (np.abs(np.sum(X, axis=1)) > (radius * classif_radius_fraction)).astype(np.int)
+    y = (np.abs(np.sum(X, axis=1)) > (radius * classif_radius_fraction)).astype(int)
 
     # But we must not feed the network with neatly organized inputs...
     # so let's randomize them
