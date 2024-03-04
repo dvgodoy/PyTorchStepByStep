@@ -51,6 +51,6 @@ def generate_dataset(img_size=10, n_images=100, binary=True, seed=17):
                        for s, t in zip(starts, targets)], dtype=np.uint8)
     
     if binary:
-        targets = (targets > 0).astype(np.int)
+        targets = (targets > 0).astype(int)
     
     return images, targets
