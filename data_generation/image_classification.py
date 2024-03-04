@@ -3,7 +3,7 @@ import numpy as np
 
 def gen_img(start, target, fill=1, img_size=10):
     # Generates empty image
-    img = np.zeros((img_size, img_size), dtype=np.float)
+    img = np.zeros((img_size, img_size), dtype=float)
 
     start_row, start_col = None, None
 
