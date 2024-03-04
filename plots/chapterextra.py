@@ -123,7 +123,7 @@ class LayerViolins(Basic):
                         for layer_name, layer_values in zip(lv.names, lv.values[i])])
 
         lv.ax.clear()
-        sns.violinplot(data=df, x='layers', y='values', ax=lv.ax, cut=0, palette=lv.palette, scale='width', linewidth=1.5)
+        sns.violinplot(data=df, x='layers', y='values', ax=lv.ax, cut=0, palette=lv.palette, density_norm='width', linewidth=1.5, hue='layers')
         lv.ax.set_xticklabels(df.layers.unique())
         lv.ax.set_xlabel('Layers')
         if lv._title is not None:
