@@ -55,17 +55,30 @@ def index_splitter(n, splits, seed=13):
     idx = torch.arange(n)
     # Makes the split argument a tensor
     splits_tensor = torch.as_tensor(splits)
-    # Finds the correct multiplier, so we don't have
-    # to worry about summing up to N (or one)
-    multiplier = n / splits_tensor.sum()    
-    splits_tensor = (multiplier * splits_tensor).long()
-    # If there is a difference, throws at the first split
-    # so random_split does not complain
-    diff = n - splits_tensor.sum()
-    splits_tensor[0] += diff
+    total = splits_tensor.sum().float()
+    # If the total does not add up to one
+    # divide every number by the total
+    if not total.isclose(torch.ones(1)[0]):
+        splits_tensor = splits_tensor / total
     # Uses PyTorch random_split to split the indices
     torch.manual_seed(seed)
     return random_split(idx, splits_tensor)
+
+# def index_splitter(n, splits, seed=13):
+#     idx = torch.arange(n)
+#     # Makes the split argument a tensor
+#     splits_tensor = torch.as_tensor(splits)
+#     # Finds the correct multiplier, so we don't have
+#     # to worry about summing up to N (or one)
+#     multiplier = n / splits_tensor.sum()    
+#     splits_tensor = (multiplier * splits_tensor).long()
+#     # If there is a difference, throws at the first split
+#     # so random_split does not complain
+#     diff = n - splits_tensor.sum()
+#     splits_tensor[0] += diff
+#     # Uses PyTorch random_split to split the indices
+#     torch.manual_seed(seed)
+#     return random_split(idx, splits_tensor)
 
 def make_balanced_sampler(y):
     # Computes weights for compensating imbalanced classes
