@@ -1,5 +1,13 @@
 # Deep Learning with PyTorch Step-by-Step
 
+## Coming Soon: Fine-Tuning LLMs!
+
+<p align="center">
+  <a href="https://leanpub.com/finetuning" target="_blank"><img src="https://pytorchstepbystep.com/assets/img/finetuning.png" /></a>
+  <br>
+  <a href="https://leanpub.com/finetuning" target="_blank">Learn More!</a>
+</p>
+
 ## Revised for PyTorch 2.x!
 The revised version addresses changes in PyTorch, Torchvision, HuggingFace, and other libraries. The chapters most affected were Chapter 4 (in Volume II) and Chapter 11 (in Volume III).
 
