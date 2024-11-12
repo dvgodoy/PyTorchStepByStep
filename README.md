@@ -3,7 +3,7 @@
 ## Coming Soon: Fine-Tuning LLMs!
 
 <p align="center">
-  <a href="https://leanpub.com/finetuning" target="_blank"><img src="https://pytorchstepbystep.com/assets/img/finetuning.png" /></a>
+  <a href="https://leanpub.com/finetuning" target="_blank"></a>
   <br>
   <a href="https://leanpub.com/finetuning" target="_blank">Learn More!</a>
 </p>
