@@ -1,11 +1,11 @@
 # Deep Learning with PyTorch Step-by-Step
 
-## Coming Soon: Fine-Tuning LLMs!
+## New book: "A Hands-On Guide to Fine-Tuning LLMs"
 
 <p align="center">
-  <a href="https://leanpub.com/finetuning" target="_blank"><img src="https://pytorchstepbystep.com/assets/img/finetuning.png" /></a>
+  <img src="https://github.com/dvgodoy/FineTuningLLMs/blob/main/images/cover.png?raw=True" width="200"/>
   <br>
-  <a href="https://leanpub.com/finetuning" target="_blank">Learn More!</a>
+  <strong><a href="https://www.amazon.com/dp/B0DV3Y1GMP">Kindle</a> | <a href="https://www.amazon.com/dp/B0DV4H7YW2">Paperback</a> | <a href="https://leanpub.com/finetuning">PDF [Leanpub]<a> | <a href="https://danielgodoy.gumroad.com/l/finetuning">PDF [Gumroad]<a></strong>
 </p>
 
 ## Revised for PyTorch 2.x!
