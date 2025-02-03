@@ -4,15 +4,15 @@ channels:
   - pytorch
   - dglteam
 dependencies:
-  - python=3.7
+  - python=3.10
   - pip
   - numpy
   - matplotlib
   - scikit-learn
   - jupyter
   - jupyterlab
-  - pytorch>=1.4
-  - torchvision>=0.5
+  - pytorch>=2.2.1
+  - torchvision>=0.17.1
   - torchtext
   - opencv
   - librosa
