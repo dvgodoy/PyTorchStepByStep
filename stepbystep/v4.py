@@ -221,7 +221,7 @@ class StepByStep(object):
 
     def load_checkpoint(self, filename):
         # Loads dictionary
-        checkpoint = torch.load(filename)
+        checkpoint = torch.load(filename, weights_only=False)
 
         # Restore state for model and optimizer
         self.model.load_state_dict(checkpoint['model_state_dict'])
