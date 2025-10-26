@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Python File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/${input:programPath}",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "programPath",
+      "description": "Enter the path to the Python file to debug relative to the workspace (e.g. alearn/check_env.py or seq2seq.py)"
+    }
+  ]
+}
